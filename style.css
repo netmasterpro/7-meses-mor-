@@ -1,137 +1,133 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(180deg, #ffd1dc, #ffe6f0);
-  font-family: Arial, sans-serif;
-  text-align: center;
-  color: #7a003c;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #ffd1dc, #ffe6f0);
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: #7a003c;
 }
 
 /* CONTENEDORES */
 #menu, #puzzle {
-  padding: 20px;
+    padding: 20px;
 }
 
 #puzzle {
-  display: none;
+    display: none;
 }
 
 /* TEXTOS */
 h1 {
-  font-size: 34px;
-  margin-bottom: 10px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
 h2 {
-  font-size: 26px;
-  margin-bottom: 15px;
+    font-size: 26px;
+    margin-bottom: 15px;
 }
 
 .mensaje {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 25px;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #5a002f;
 }
 
 /* OSO */
 .oso {
-  width: 70%;
-  max-width: 280px;
-  margin: 20px auto;
-  display: block;
+    width: 70%;
+    max-width: 280px;
+    margin: 20px auto;
+    display: block;
 }
 
 /* BOTONES */
 button {
-  background: #ff4d6d;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 15px 25px;
-  font-size: 20px;
-  cursor: pointer;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 button:active {
-  transform: scale(0.96);
+    transform: scale(0.96);
 }
 
 /* BOTÓN VOLVER */
 .volver {
-  background: transparent;
-  border: 2px solid #ff4d6d;
-  color: #ff4d6d;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 16px;
-  margin-bottom: 10px;
+    background: transparent;
+    border: 2px solid #ff4d6d;
+    color: #ff4d6d;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 /* TABLERO */
 #tablero {
-  width: 94vw;
-  height: 94vw;
-  max-width: 420px;
-  max-height: 420px;
-  margin: 15px auto;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 15px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    width: 94vw;
+    height: 94vw;
+    max-width: 420px;
+    max-height: 420px;
+    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* PIEZAS */
 .pieza {
-  width: 20%;
-  height: 20%;
-  background-repeat: no-repeat;
-  border: 1px solid rgba(255,255,255,0.4);
+    width: 20%;
+    height: 20%;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(255,255,255,0.4);
 }
 
 .pieza.activa {
-  outline: 3px solid #ff4d6d;
+    outline: 3px solid #ff4d6d;
 }
 
 /* MENSAJE FINAL */
 #felicitacion {
-  font-size: 20px;
-  margin-top: 15px;
-  color: #ff4d6d;
-  font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+    color: #ff4d6d;
+    font-weight: bold;
 }
 
 /* CORAZONES FLOTANDO */
 .corazon {
-  position: fixed;
-  bottom: -20px;
-  font-size: 24px;
-  animation: flotar 4s linear forwards;
-  pointer-events: none;
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    animation: flotar 4s linear forwards;
+    pointer-events: none;
 }
 
 @keyframes flotar {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-120vh);
-    opacity: 0;
-  }
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
 }
 
 /* ANIMACIÓN AL GANAR */
 .ganar {
-  animation: zoom 0.8s ease;
+    animation: zoom 0.8s ease;
 }
 
 @keyframes zoom {
-  0% { transform: scale(0.8); }
-  100% { transform: scale(1); }
+    0% { transform: scale(0.8); }
+    100% { transform: scale(1); }
 }
