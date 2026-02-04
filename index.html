@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>7 Meses ❤️</title>
+	<link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+	<!-- AUDIO -->
+	<audio id="musica" src="music.mp3" loop controls style="display:none;"></audio>
+
+	<!-- MENÚ INICIO -->
+	<div id="menu">
+	  <h1>Felices 7 Meses ❤️</h1>
+
+	  <img src="oso.png" class="oso">
+
+	  <p class="mensaje">
+		Mi amor, gracias por estos 7 meses tan lindos.<br>
+		Cada día a tu lado es especial.<br>
+		Te amo muchísimo 💖
+	  </p>
+
+	  <button onclick="abrirPuzzle()">💖 Clic aquí mor 💖</button>
+	</div>
+
+	<!-- PUZZLE -->
+	<div id="puzzle">
+	  <button class="volver" onclick="volverInicio()">⬅ Volver</button>
+
+	  <h2>Arma el rompecabezas 💕</h2>
+
+	  <div id="tablero"></div>
+
+	  <p id="felicitacion"></p>
+	</div>
+
+	<script src="script.js"></script>
+  </body>
+</html>
