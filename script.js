@@ -1,31 +1,29 @@
-/* =========================
-   🎵 MÚSICA DE FONDO
-========================= */
 var musica = new Audio('music.mp3');
 musica.loop = true;
 musica.volume = 0.5;
 
-/* =========================
-   🧩 VARIABLES PUZZLE
-========================= */
 var piezas = [];
 var ordenCorrecto = [];
 var seleccionada = null;
-
 var filas = 5;
 var columnas = 5;
 
-/* =========================
-   ▶️ ABRIR PUZZLE + SONIDO
-========================= */
-function abrirPuzzle() {
-    // 🔊 Reproducir música al hacer click
-    if (musica.paused) {
+// Espera a que el DOM cargue
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionamos el botón
+    var boton = document.querySelector("#menu button");
+    boton.addEventListener("click", function() {
+        // Reproducir música al primer click
         musica.play().catch(function(e){
             console.log("Audio bloqueado: " + e);
         });
-    }
 
+        // Abrir puzzle
+        abrirPuzzle();
+    });
+});
+
+function abrirPuzzle() {
     document.getElementById("menu").style.display = "none";
     document.getElementById("puzzle").style.display = "block";
     document.getElementById("felicitacion").innerHTML = "";
@@ -33,17 +31,11 @@ function abrirPuzzle() {
     crearPuzzle();
 }
 
-/* =========================
-   🔙 VOLVER AL MENÚ
-========================= */
 function volverInicio() {
     document.getElementById("puzzle").style.display = "none";
     document.getElementById("menu").style.display = "block";
 }
 
-/* =========================
-   🧩 CREAR PUZZLE
-========================= */
 function crearPuzzle() {
     var tablero = document.getElementById("tablero");
     tablero.innerHTML = "";
@@ -88,9 +80,6 @@ function crearPuzzle() {
     }
 }
 
-/* =========================
-   🔁 SELECCIONAR PIEZAS
-========================= */
 function seleccionar(pieza) {
     if (seleccionada === null) {
         seleccionada = pieza;
@@ -107,9 +96,6 @@ function seleccionar(pieza) {
     }
 }
 
-/* =========================
-   🎉 COMPROBAR VICTORIA
-========================= */
 function comprobarSiGano() {
     var tablero = document.getElementById("tablero");
     var hijos = tablero.children;
@@ -130,4 +116,4 @@ function comprobarSiGano() {
         "💖 Bien hecho mor, lo lograste 💖";
 
     musica.volume = 0.8;
-}
+           }
