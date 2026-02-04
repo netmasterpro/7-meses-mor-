@@ -19,10 +19,11 @@ var columnas = 5;
    ▶️ ABRIR PUZZLE + SONIDO
 ========================= */
 function abrirPuzzle() {
-    try {
-        musica.play(); // se reproduce al click
-    } catch (e) {
-        console.log("Audio bloqueado");
+    // 🔊 Reproducir música al hacer click
+    if (musica.paused) {
+        musica.play().catch(function(e){
+            console.log("Audio bloqueado: " + e);
+        });
     }
 
     document.getElementById("menu").style.display = "none";
@@ -129,74 +130,4 @@ function comprobarSiGano() {
         "💖 Bien hecho mor, lo lograste 💖";
 
     musica.volume = 0.8;
-}
-  var tamaño = tablero.offsetWidth / columnas;
-
-  for (var j = 0; j < piezas.length; j++) {
-    var div = document.createElement("div");
-
-    div.style.width = tamaño + "px";
-    div.style.height = tamaño + "px";
-
-    div.style.backgroundImage = "url('anuel.jpg')";
-    div.style.backgroundSize =
-      (tamaño * columnas) + "px " + (tamaño * filas) + "px";
-
-    var x = piezas[j] % columnas;
-    var y = Math.floor(piezas[j] / columnas);
-
-    div.style.backgroundPosition =
-      (-x * tamaño) + "px " + (-y * tamaño) + "px";
-
-    div.onclick = function () {
-      seleccionar(this);
-    };
-
-    tablero.appendChild(div);
-  }
-}
-
-/* =========================
-   🔁 SELECCIONAR PIEZAS
-========================= */
-function seleccionar(pieza) {
-  if (seleccionada === null) {
-    seleccionada = pieza;
-    pieza.style.opacity = "0.6";
-  } else {
-    var temp = seleccionada.style.backgroundPosition;
-    seleccionada.style.backgroundPosition = pieza.style.backgroundPosition;
-    pieza.style.backgroundPosition = temp;
-
-    seleccionada.style.opacity = "1";
-    seleccionada = null;
-
-    comprobarSiGano();
-  }
-}
-
-/* =========================
-   🎉 COMPROBAR VICTORIA
-========================= */
-function comprobarSiGano() {
-  var tablero = document.getElementById("tablero");
-  var hijos = tablero.children;
-  var tamaño = tablero.offsetWidth / columnas;
-
-  for (var i = 0; i < hijos.length; i++) {
-    var x = i % columnas;
-    var y = Math.floor(i / columnas);
-
-    var correcta =
-      (-x * tamaño) + "px " + (-y * tamaño) + "px";
-
-    if (hijos[i].style.backgroundPosition !== correcta) {
-      return;
-    }
-  }
-
-  document.getElementById("felicitacion").innerHTML =
-    "💖 Bien hecho mor, lo lograste 💖";
-
-  musica.volume = 0.8;
 }
